@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #00c4c0;
+    color: white;
+}
+
+.container {
+    background-color: #dc4d4d;
+    width: 600px;
+    margin: 30px auto;
+    padding: 16px 4px;
+    border-radius: 15px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo img {
+    width: 24px;
+    margin-bottom: 15px;
+}
+
+#search {
+    width: 90%;
+    border-radius: 8px;
+    padding: 5px;
+
+    border: none;
+    outline: none;
+    margin: auto;
+}
