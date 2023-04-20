@@ -4,40 +4,88 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #00c4c0;
-    color: white;
+    font-size: 1.6rem;
+    background-color: #cbcbcb;
 }
 
-.container {
-    background-color: #dc4d4d;
-    width: 600px;
-    margin: 30px auto;
-    padding: 16px 4px;
-    border-radius: 15px;
+.pokedex {
+    background-color: #c23c3c;
+    width: 30rem;
+    border-radius: 2rem;
+    margin: 10rem auto;
+    padding: 2rem;
+    box-shadow: 0px 4px 8px 0px #0000008a;
 }
 
-.logo {
+.pokeLogo {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.pokeLogo img {
+    width: 3rem;
+}
+
+.pokedex h1 {
+    color: #ffffff;
+    text-align: center;
+}
+
+.search {
+    display: flex;
+}
+
+.search input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border: none;
+}
+
+.pokeList {
+    text-align: center;
+}
+
+.pokeImg {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.pokeImg img {
+    width: 13rem;
+    background-color: #9cd280;
+    border-radius: 50%;
+}
+
+.pokeName {
+    margin-bottom: 1rem;
+}
+
+.pokeName p {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.pokeTypes {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 16px;
+    gap: 5rem;
+    margin-top: 1rem;
 }
 
-.logo img {
-    width: 24px;
-    margin-bottom: 15px;
-}
-
-#search {
-    width: 90%;
-    border-radius: 8px;
-    padding: 5px;
-
-    border: none;
-    outline: none;
-    margin: auto;
+.pokeTypes small {
+    color: #ffffff;
 }

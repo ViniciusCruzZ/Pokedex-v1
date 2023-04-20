@@ -7,6 +7,8 @@
 
     <title>Pokédex</title>
 
+    <link rel="shortcut icon" href="assets/pokebola.ico" type="image/x-icon">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,26 +16,35 @@
 
     <!-- Link CSS & JS-->
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="script.js">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <img src="assets/pokeball.svg">
-                <h2>Pokédex</h2>
-            </div>
-            <div class="search">
-                <input type="text" name="search" id="search">
-            </div>
+    <div class="pokedex">
+        <div class="pokeLogo">
+            <img src="assets/pokeball.svg" alt="Pokebola">
+            <h1>Pokédex</h1>
         </div>
-        <div class="pokemons">
-            <div class="pokeCard">
-                <small>#001</small>
+        <div class="search">
+            <input type="text" id="pokeSearch">
+            <button>
+                <img src="assets/search.svg" alt="Imagem de lupa" id="btnSearch">
+            </button>
+        </div>
+        <div class="pokeList">
+            <div class="pokemon">
                 <div class="pokeImg">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Imagem do pokemon">
                 </div>
-                <p class="pokeName">Bulbassaur</p>
+                <div class="pokeInfos">
+                    <div class="pokeName">
+                        <p>Bulbasaur</p>
+                    </div>
+                    <hr>
+                    <div class="pokeTypes">
+                        <small>Grass</small>
+                        <small>Poison</small>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
