@@ -43,6 +43,7 @@ body {
 }
 
 .search {
+    position: relative;
     display: flex;
 }
 
@@ -53,6 +54,20 @@ body {
     margin-bottom: 1rem;
     outline: none;
     border: none;
+}
+
+#btnSearch {
+    position: absolute;
+    width: 30px;
+    right: 5px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-65%);
+    cursor: pointer;
+}
+
+#btnSearch:hover {
+    background-color: rgb(219, 219, 219);
 }
 
 .pokeList {
