@@ -5,6 +5,13 @@ const pokeInput = document.querySelector('#pokeSearch');
 const btnSearch = document.querySelector('#btnSearch');
 const pokeTypes = document.querySelector('.pokeTypes');
 
+// Aplicando o Enter na pesquisa
+pokeInput.addEventListener("keyup", function(e) {
+    if (e.keyCode === 13) {
+        btnSearch.click();
+    }
+});
+
 btnSearch.addEventListener('click', () => {
     // Verificando se o input está devidamente preenchido
     if (pokeInput.value <= 0 || pokeInput.value > 1281) {
@@ -18,11 +25,11 @@ btnSearch.addEventListener('click', () => {
         .then(resp => resp.json())
         .then(data => {
             const img = data.sprites.front_default;
-            const name = data.name;
+            let name = data.name;
             const types = data.types;
             
             pokeImg.src = img
-            pokeName.textContent = name;
+            pokeName.textContent = name.toUpperCase();
             types.forEach(c => {
                 let pokeType = c.type.name;
                 pokeTypes.innerHTML = `<small>${pokeType}</small>`
