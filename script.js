@@ -4,6 +4,28 @@ const pokeImg = document.querySelector('.pokeImg > img');
 const pokeInput = document.querySelector('#pokeSearch');
 const btnSearch = document.querySelector('#btnSearch');
 const pokeTypes = document.querySelector('.pokeTypes');
+const bgTypes = {
+    "grass": "#458b20",
+    "fire": "#671010",
+    "water": "#2fa6df",
+    "flying": "#cfe1e9",
+    "normal": "#9d9d9d",
+    "shadow": "#1c1c1c",
+    "fighting": "#dd7d45",
+    "poison": "#532a69",
+    "ground": "#511e0b",
+    "rock": "#4d403b",
+    "bug": "#3aef72",
+    "ghost": "#ffffff",
+    "steel": "#afafaf",
+    "psychic": "#d800ff",
+    "electric": "#e5df0e",
+    "ice": "#00fff3",
+    "dragon": "#ff5200",
+    "dark": "#331f30",
+    "fairy": "#ff80fb",
+    "unknown": "#afafaf00"
+};
 
 // Aplicando o Enter na pesquisa
 pokeInput.addEventListener("keyup", function(e) {
@@ -22,22 +44,29 @@ btnSearch.addEventListener('click', () => {
         fetch(api+`/${pokeInput.value.toLowerCase()}`)
         .then(resp => resp.json())
         .then(data => {
-            const img = data.sprites.front_default;
+            let img = data.sprites.front_default;
             let name = data.name;
-            const types = data.types;
-            
-            pokeImg.src = img
-            pokeName.textContent = name.toUpperCase();
-            types.forEach(c => {
-                let pokeType = c.type.name;
-                pokeTypes.innerHTML = `<small>${pokeType}</small>`
+            let types = data.types;
+
+            types.forEach(e => {
+                let type = e.type.name;
+                pokeTypes.innerHTML += `<small>${type}</small>`
             });
+            
+            let firstType = types[0].type.name
+
+            pokeImg.src = img
+            pokeImg.style.backgroundColor = bgTypes[`${firstType}`]
+            pokeImg.alt = "Imagem do pokemon " + name
+            pokeName.textContent = name.toUpperCase();
         })
     
         .catch(erro => {
             alert(erro)
         })
 
+        pokeImg.style.background = ''
+        pokeTypes.innerHTML = ''
         pokeInput.value = ''
     }
 })
