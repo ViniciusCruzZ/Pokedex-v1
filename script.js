@@ -19,7 +19,7 @@ btnSearch.addEventListener('click', () => {
 
     // Chamando a API
     } else {
-        fetch(api + `/${pokeInput.value}`).toLowerCase
+        fetch(api+`/${pokeInput.value.toLowerCase()}`)
         .then(resp => resp.json())
         .then(data => {
             const img = data.sprites.front_default;
