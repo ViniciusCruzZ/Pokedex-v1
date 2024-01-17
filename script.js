@@ -17,11 +17,9 @@ btnSearch.addEventListener('click', () => {
     if (pokeInput.value <= 0 || pokeInput.value > 1281) {
         alert('Infelizmente não temos todos os pokémons, porfavor pesquise pokemons entre 1 e 1281 👍')
 
-        pokeInput.value = ''
-
     // Chamando a API
     } else {
-        fetch(api+`/${pokeInput.value}`)
+        fetch(api + `/${pokeInput.value}`).toLowerCase
         .then(resp => resp.json())
         .then(data => {
             const img = data.sprites.front_default;
@@ -34,12 +32,12 @@ btnSearch.addEventListener('click', () => {
                 let pokeType = c.type.name;
                 pokeTypes.innerHTML = `<small>${pokeType}</small>`
             });
-
-            pokeInput.value = ''
         })
     
         .catch(erro => {
             alert(erro)
         })
+
+        pokeInput.value = ''
     }
 })
