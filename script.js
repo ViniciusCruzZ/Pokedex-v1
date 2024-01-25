@@ -50,7 +50,7 @@ btnSearch.addEventListener('click', () => {
 
             types.forEach(e => {
                 let type = e.type.name;
-                pokeTypes.innerHTML += `<small>${type}</small>`
+                pokeTypes.innerHTML += `<small style="background-color: ${bgTypes[type]}">${type}</small>`
             });
             
             let firstType = types[0].type.name

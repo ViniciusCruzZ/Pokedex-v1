@@ -101,5 +101,17 @@ body {
 }
 
 .pokeTypes small {
-    color: #ffffff;
+    display: inline-block;
+    width: 66px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.2);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.7);
+    text-transform: uppercase;
+    transition: opacity .4s;
 }
