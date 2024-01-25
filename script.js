@@ -28,7 +28,7 @@ const bgTypes = {
 };
 
 // Aplicando o Enter na pesquisa
-pokeInput.addEventListener("keyup", function(e) {
+pokeInput.addEventListener("keyup", function (e) {
     if (e.keyCode === 13) {
         btnSearch.click();
     }
@@ -36,37 +36,39 @@ pokeInput.addEventListener("keyup", function(e) {
 
 btnSearch.addEventListener('click', () => {
     // Verificando se o input está devidamente preenchido
-    if (pokeInput.value <= 0 || pokeInput.value > 1281) {
+    if (pokeInput.value <= 0) {
         alert('Infelizmente não temos todos os pokémons, porfavor pesquise pokemons entre 1 e 1281 👍')
-
-    // Chamando a API
     } else {
-        fetch(api+`/${pokeInput.value.toLowerCase()}`)
-        .then(resp => resp.json())
-        .then(data => {
-            let img = data.sprites.front_default;
-            let name = data.name;
-            let types = data.types;
+        // Chamando a API
+        fetch(api + `/${pokeInput.value.toLowerCase()}`)
+            .then(resp => resp.json())
+            .then(data => {
 
-            types.forEach(e => {
-                let type = e.type.name;
-                pokeTypes.innerHTML += `<small style="background-color: ${bgTypes[type]}">${type}</small>`
-            });
-            
-            let firstType = types[0].type.name
+                pokeImg.src = ''
+                pokeName.textContent = ''
+                pokeImg.style.background = ''
+                pokeTypes.innerHTML = ''
+                pokeInput.value = ''
 
-            pokeImg.src = img
-            pokeImg.style.backgroundColor = bgTypes[`${firstType}`]
-            pokeImg.alt = "Imagem do pokemon " + name
-            pokeName.textContent = name.toUpperCase();
-        })
-    
-        .catch(erro => {
-            alert(erro)
-        })
+                let img = data.sprites.front_default;
+                let name = data.name;
+                let types = data.types;
 
-        pokeImg.style.background = ''
-        pokeTypes.innerHTML = ''
-        pokeInput.value = ''
+                types.forEach(e => {
+                    let type = e.type.name;
+                    pokeTypes.innerHTML += `<small style="background-color: ${bgTypes[type]}">${type}</small>`
+                });
+
+                let firstType = types[0].type.name
+
+                pokeImg.src = img
+                pokeImg.style.backgroundColor = bgTypes[`${firstType}`]
+                pokeImg.alt = "Imagem do pokemon " + name
+                pokeName.textContent = name.toUpperCase();
+            })
+
+            .catch(erro => {
+                alert(erro)
+            })
     }
 })
